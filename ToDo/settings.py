@@ -140,6 +140,6 @@ CORS_ORIGIN_ALLOW_ALL=True
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://todo-api.onrender.com/',
+    'https://todo-api-6b92.onrender.com',
 ]
 
