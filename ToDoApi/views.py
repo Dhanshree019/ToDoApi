@@ -3,6 +3,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from ToDoApi.models import *
 from ToDoApi.serializers import *
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
+
 # Create your views here.
 
 
@@ -32,3 +35,14 @@ class ToDoView(APIView):
         ToDoData.objects.create(title=todo_data["title"],description=todo_data["description"])
 
         return Response({"Message":"To Do created succesfully"},status=201)
+
+
+@csrf_exempt
+def home(request):
+
+    if request.method == "POST":
+        email = request.POST.get('email')
+        return render(request, 'result.html', {"email": email})
+
+    return render(request, 'home.html')
+
