@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+
+
+    <style>
+        .main-todo {
+            background-color: bisque;
+            padding: 30px 50px;
+        }
+
+        .item-todo {
+            background-color: azure;
+            padding: 10px 20px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <form action="/todo/home" method="POST">
+
+        <input type="text" name="title" placeholder="Enter title">
+        <input type="text" name="description" placeholder="Enter description">
+        <br>
+        <br>
+        <button type="submit">
+            Add ToDo
+        </button>
+    </form>
+
+
+    <br> <br> <br>
+
+    <div class="main-todo">
+
+        {% for t in todos %}
+
+        <div class="item-todo">
+            <h3>ToDo ID: {{t.id}} </h3>
+            <p>Title: {{t.title}} </p>
+            <p>Description: {{t.description}} </p>
+
+            <br>
+            <a href="/todo/edit?t_id={{t.id}}">
+                <button>
+                    Edit
+                </button>
+            </a>
+
+            <a href="/todo/delete?t_id={{t.id}}">
+                <button>
+                    Delete
+                </button>
+            </a>
+
+        </div>
+        <br>
+
+        {% endfor %}
+
+
+    </div>
+
+</body>
+
+</html>
