@@ -10,6 +10,7 @@ from django.http import HttpResponse
 
 
 class ToDoView(APIView):
+    
     def get(self,request):
         todo_id = request.GET.get('todo_id')
         todo_details = None
